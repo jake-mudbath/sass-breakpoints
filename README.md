@@ -8,7 +8,7 @@ SASS mixins for named breakpoints.
 
 ## Installation
 
-    npm install --save sass-breakpoints
+    npm install --save mb-sass-breakpoints
 
 ## Usage
 
@@ -18,10 +18,11 @@ SCSS: `example/settings.scss`
 
     //these are the default settings if not specified by the user
     $breakpoints: (
-      "xs": 0px,    //targeting <568px devices (e.g. all iPhones <6)
-      "sm": 568px,  //targeting >=568px devices (e.g. iPhones >=6)
-      "md": 768px,  //targeting >=768px tablets (e.g. portrait iPad)
-      "lg": 1004px  //targeting >=1024px tablets (e.g. landscape iPad) and desktops but leaving room for the scroll bar
+      'xs': 0px,
+      'sm': 480px,
+      'md': 640px,
+      'lg': 800px,
+      'xl': 960px,
     );
 
 SCSS: `example/example.scss`
