@@ -1,0 +1,61 @@
+//browsers always use 16px regardless of the font-size set on the html or body elements - see http://www.filamentgroup.com/lab/how-we-learned-to-leave-body-font-size-alone.html
+
+@import "../sass-ems/index";
+
+$breakpoints: (
+  'xs': 0px,
+  'sm': 480px,
+  'md': 640px,
+  'lg': 800px,
+  'xl': 960px,
+) !default;
+
+@mixin breakpoint-lt($to) {
+  @media (max-width: em(map-get($breakpoints, $to) - 1px, 16px)) {
+	@content
+  }
+}
+
+@mixin breakpoint-lte($to) {
+  @media (max-width: em(map-get($breakpoints, $to), 16px)) {
+    @content
+  }
+}
+
+@mixin breakpoint-gt($from) {
+  @media (min-width: em(map-get($breakpoints, $from) + 1, 16px)) {
+	@content
+  }
+}
+
+@mixin breakpoint-gte($from) {
+  @media (min-width: em(map-get($breakpoints, $from), 16px)) {
+    @content
+  }
+}
+
+@mixin breakpoint-between($from, $to) {
+  @media (min-width: em(map-get($breakpoints, $from) + 1, 16px)) and (max-width: em(map-get($breakpoints, $to) - 1, 16px)) {
+	@content
+  }
+}
+
+@mixin breakpoint($from, $to: null) {
+
+  @if ($from and $to) {
+
+    @media (min-width: em(map-get($breakpoints, $from), 16px)) and (max-width: em(map-get($breakpoints, $to) - 1, 16px)) {
+      @content
+    }
+
+  } @else if ($from) {
+
+    @include breakpoint-gte($from) {
+      @content
+    }
+
+  } @else {
+    @content
+  }
+
+}
