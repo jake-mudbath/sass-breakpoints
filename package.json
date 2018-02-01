@@ -1,5 +1,5 @@
 {
-  "name": "mb-sass-breakpoints",
+  "name": "mudbath-sass-breakpoints",
   "version": "2.1.1",
   "author": "James Newell <james@digitaledgeit.com.au>, Modified by Jake Spillane <jake@mudbath.com.au>",
   "description": "SASS mixins for named breakpoints. With mudbath settings preset.",
